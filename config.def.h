@@ -120,6 +120,7 @@ static const char *medianextcmd[] = {"playerctl", "next", NULL};
 static const char *mediaplaypausecmd[] = {"playerctl", "play-pause", NULL};
 static const char *mediaprevcmd[] = {"playerctl", "previous", NULL};
 static const char *mediastopcmd[] = {"playerctl", "stop", NULL};
+static const char *lockcmd[] = {"xset", "s", "activate", NULL};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -170,6 +171,7 @@ static const Key keys[] = {
   { 0,                XF86XK_AudioRaiseVolume, spawn,        {.v = volupcmd } },
   { 0,                XF86XK_AudioLowerVolume, spawn,        {.v = voldncmd } },
   { 0,                XF86XK_AudioMute,      spawn,          {.v = togglemutecmd } },
+  { 0,                XF86XK_Launch1,        spawn,          {.v = lockcmd } },
 };
 
 /* button definitions */
