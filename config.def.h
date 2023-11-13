@@ -80,6 +80,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+	{ "CoreShot", NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
@@ -122,11 +123,17 @@ static const char *mediaplaypausecmd[] = {"playerctl", "play-pause", NULL};
 static const char *mediaprevcmd[] = {"playerctl", "previous", NULL};
 static const char *mediastopcmd[] = {"playerctl", "stop", NULL};
 static const char *lockcmd[] = {"xset", "s", "activate", NULL};
+static const char *screenshotselcmd[] = {"coreshot", "-s", NULL};
+static const char *screenshotwindowcmd[] = {"coreshot", "-w", NULL};
+static const char *screenshotfullscreencmd[] = {"coreshot", "-f", NULL};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_w,      spawn,          {.v = screenshotwindowcmd } },
+	{ MODKEY,                       XK_s,      spawn,          {.v = screenshotselcmd } },
+  { MODKEY,                       XK_x,      spawn,          {.v = screenshotfullscreencmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
   { MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
